@@ -5,11 +5,8 @@ from clean_compileds.Node_File_List import Node_File_List
 from clean_compileds.PHP_File_List import PHP_File_List
 
 def main():
-    file_list = os.listdir()
-    project_detector = Project_Detector()
-    project_detector.set_root_file_list(file_list)
 
-    project_type = project_detector.get_project_type()
+    project_type = Project_Detector().set_root_file_list(os.listdir()).get_project_type()
 
     if project_type == 'php':
         deleting_file_list = PHP_File_List()
