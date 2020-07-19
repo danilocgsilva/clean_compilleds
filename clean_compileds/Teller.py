@@ -15,10 +15,17 @@ class Teller:
         if not hasattr(self, "project_type"):
             raise Exception("There's no project_type setted in the Teller object.")
 
-        print("The detected project type is " + self.project_type)
-        return self
+        return "The detected project type is " + self.project_type + "."
 
 
     def tell_removing_files(self):
-        
-        return self
+
+        if not hasattr(self, "file_list"):
+            raise Exception("There's no project_type setted in the Teller object.")
+
+        string_to_return = "The following files will be removed:\n"
+
+        for removing_file in self.file_list:
+            string_to_return += removing_file + "\n"
+
+        return string_to_return
