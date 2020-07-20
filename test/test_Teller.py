@@ -23,7 +23,7 @@ class test_Teller(unittest.TestCase):
 
 
     def test_give_list_deletting_files(self):
-        
+
         file_list = ["file1.txt", "file2.txt", "file3.md"]
         self.teller.set_file_list(file_list)
 
@@ -32,5 +32,18 @@ class test_Teller(unittest.TestCase):
         for file in file_list:
             expected_string += file + "\n"
 
-        self.assertEqual(expected_string, self.teller.tell_removing_files())
+        returned_string = self.teller.tell_removing_files()
+
+        self.assertEqual(expected_string, returned_string)
+
+
+    def test_error_get_project_type_without_setting_it(self):
+        with self.assertRaises(Exception):
+            self.teller.tell_project_type()
+
+
+    def test_error_get_file_list_without_setting_it(self):
+        with self.assertRaises(Exception):
+            self.teller.tell_removing_files()
+        
 

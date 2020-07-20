@@ -1,3 +1,5 @@
+from clean_compileds.Project_Not_Detected import Project_Not_Detected
+
 class Project_Detector:
 
     def set_root_file_list(self, file_list: list):
@@ -12,4 +14,4 @@ class Project_Detector:
             return 'php'
         if 'node_modules' in self.file_list:
             return 'node'
-        raise Exception('I could not detect the project type. Sorry.')
+        raise Project_Not_Detected('I could not detect the project type. Sorry.')

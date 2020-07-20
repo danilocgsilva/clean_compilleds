@@ -14,4 +14,6 @@ pip install .
 
 The installation creates a command called `cleancompileds`.
 
-Navigayes to your project's code and run the `cleancompileds`.
+Navigates to your project's code and run the `cleancompileds`.
+
+Right now, the project is ready just to clean compiled files from node and php projects.

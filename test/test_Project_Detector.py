@@ -2,6 +2,7 @@ import unittest
 import sys
 sys.path.insert(1, "..")
 from clean_compileds.Project_Detector import Project_Detector
+from clean_compileds.Project_Not_Detected import Project_Not_Detected
 
 class test_Project_Detector(unittest.TestCase):
 
@@ -25,11 +26,11 @@ class test_Project_Detector(unittest.TestCase):
         project_detector = Project_Detector()
         file_list = ['file1.txt', 'readme.md', 'another_one_file.txt']
         project_detector.set_root_file_list(file_list)
-        with self.assertRaises(Exception):
+        with self.assertRaises(Project_Not_Detected):
             project_detector.get_project_type()
+
 
     def test_error_when_forgot_set_file_list(self):
         project_detector =  Project_Detector()
         with self.assertRaises(Exception):
             project_detector.get_project_type()
-
